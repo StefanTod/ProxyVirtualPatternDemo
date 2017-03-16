@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+using System.Timers;
+using System.Xml.XPath;
+
 
 namespace ProxyVirtualPatternDemo
 {
@@ -15,21 +17,32 @@ namespace ProxyVirtualPatternDemo
 
         public Square()
         {
-            Timer timer = new Timer(new TimerCallback(TimeProc));
-            timer.Change(5000,)
+            Timer timer = new Timer(5000);
+            timer.Elapsed += OnElapseCircle;
+            timer.Close();
         }
 
-        public void move(Point p)
+        private void OnElapseCircle(object sender, ElapsedEventArgs e)
         {
+            circle = new Circle();
+            if (MoveToPoint != null)
+            {
+                circle.move(MoveToPoint);
+            }
             
         }
 
-        public void TimeProc(object state)
+
+        public void move(Point p)
         {
-            Timer t = (Timer) state;
-            t.
-
-
+            if (circle != null)
+            {
+                circle.move(MoveToPoint);
+            }
+            else
+            {
+                MoveToPoint = new Point(MoveToPoint.X,MoveToPoint.Y);
+            }
         }
     }
 }
