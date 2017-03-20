@@ -8,16 +8,25 @@ using System.Xml.XPath;
 
 namespace ProxyVirtualPatternDemo
 {
-    class Circle : Shape
+    class Circle : CreateShape
     {
-        public Circle()
+        public static int width = 50, height = 50;
+        private Graphics gForm;
+        private Point coordinates;
+
+        public Circle(Graphics g)
         {
-            
+            gForm = g;
         }
 
-        public void move(Point point)
+        public void Move(Point point)
         {
-            
+            coordinates = point;
+        }
+
+        public void Draw()
+        {
+            gForm.FillEllipse(Brushes.Green, coordinates.X - (width / 2), coordinates.Y - (height / 2), width, height);
         }
     }
 }
