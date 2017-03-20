@@ -56,6 +56,7 @@
             // timer_refresh
             // 
             this.timer_refresh.Enabled = true;
+            this.timer_refresh.Interval = 25;
             this.timer_refresh.Tick += new System.EventHandler(this.timer_refresh_Tick);
             // 
             // Form1

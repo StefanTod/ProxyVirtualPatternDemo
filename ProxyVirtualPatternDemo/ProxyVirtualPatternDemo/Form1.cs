@@ -53,6 +53,11 @@ namespace ProxyVirtualPatternDemo
 
         private void timer_refresh_Tick(object sender, EventArgs e)
         {
+            if (circle != null)
+            {
+                Point point = new Point(-10, -10);
+                circle.Move(point);
+            }
             Invalidate();
         }
     }

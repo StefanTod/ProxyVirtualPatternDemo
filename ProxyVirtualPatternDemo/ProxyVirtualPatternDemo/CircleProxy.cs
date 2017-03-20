@@ -38,7 +38,7 @@ namespace ProxyVirtualPatternDemo
         private void OnElapseCircle(object sender, ElapsedEventArgs e)
         {
             timer.Enabled = false;
-            circle = new Circle(gForm);
+            circle = new Circle(gForm, tempCoords);
             circle.Move(MoveToPoint);
         }
 
@@ -46,7 +46,8 @@ namespace ProxyVirtualPatternDemo
         {
             if (circle == null)
             {
-                MoveToPoint = p;
+                if(p.X >= 0)
+                    MoveToPoint = p;
             }
             else
             {
