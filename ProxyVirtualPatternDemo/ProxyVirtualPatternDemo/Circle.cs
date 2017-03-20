@@ -8,7 +8,7 @@ using System.Xml.XPath;
 
 namespace ProxyVirtualPatternDemo
 {
-    class Circle : CreateShape
+    class Circle : IShape
     {
         public static int width = 50, height = 50;
         private Graphics gForm;

@@ -2,7 +2,7 @@
 
 namespace ProxyVirtualPatternDemo
 {
-    public interface CreateShape
+    public interface IShape
     {
         void Move(Point p);
         void Draw();
