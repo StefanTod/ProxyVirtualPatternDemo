@@ -11,7 +11,7 @@ using System.Xml.XPath;
 
 namespace ProxyVirtualPatternDemo
 {
-    class CircleProxy : CreateShape
+    class CircleProxy : IShape
     {
         private Point MoveToPoint;
         private Circle circle;

@@ -13,11 +13,11 @@ namespace ProxyVirtualPatternDemo
     public partial class Form1 : Form
     {
         private Point coords = new Point(50, 50);
-        CircleProxy cp;
+        IShape circle;
 
         private void btn_transform_Click(object sender, EventArgs e)
         {
-            cp = new CircleProxy(this.CreateGraphics(), coords);
+            circle = new CircleProxy(this.CreateGraphics(), coords);
             Invalidate();
         }
 
@@ -31,18 +31,18 @@ namespace ProxyVirtualPatternDemo
         {
             coords = this.PointToClient(Cursor.Position);
             UpdateText();
-            if (cp != null)
+            if (circle != null)
             {
-                cp.Move(coords);
+                circle.Move(coords);
             }
             Invalidate();
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            if (cp != null)
+            if (circle != null)
             {
-                cp.Draw();
+                circle.Draw();
             }
         }
 
