@@ -13,11 +13,21 @@ namespace ProxyVirtualPatternDemo
     public partial class Form1 : Form
     {
         private Point coords = new Point(50, 50);
-        IShape circle;
+        private IShape shape;
+        private IShape wantedShape;
 
-        private void btn_transform_Click(object sender, EventArgs e)
+        private void createShape_Click(object sender, EventArgs e)
         {
-            circle = new CircleProxy(this.CreateGraphics(), coords);
+            switch (choose_shape.SelectedItem.ToString())
+            {
+                case "Circle":
+                    wantedShape = new Circle(this.CreateGraphics(), coords);
+                    break;
+                case "Square":
+                    wantedShape = new Square(this.CreateGraphics(), coords);
+                    break;
+            }
+            shape = new ShapeProxy(this.CreateGraphics(), coords, wantedShape);
             Invalidate();
         }
 
@@ -31,18 +41,18 @@ namespace ProxyVirtualPatternDemo
         {
             coords = this.PointToClient(Cursor.Position);
             UpdateText();
-            if (circle != null)
+            if (shape != null)
             {
-                circle.Move(coords);
+                shape.Move(coords);
             }
             Invalidate();
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            if (circle != null)
+            if (shape != null)
             {
-                circle.Draw();
+                shape.Draw();
             }
         }
 
@@ -53,12 +63,19 @@ namespace ProxyVirtualPatternDemo
 
         private void timer_refresh_Tick(object sender, EventArgs e)
         {
-            if (circle != null)
+            if (shape != null)
             {
                 Point point = new Point(-10, -10);
-                circle.Move(point);
+                shape.Move(point);
             }
             Invalidate();
         }
+
+        private void choose_shape_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+
     }
 }
