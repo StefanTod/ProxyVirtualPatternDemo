@@ -13,21 +13,21 @@ namespace ProxyVirtualPatternDemo
     public partial class Form1 : Form
     {
         private Point coords = new Point(50, 50);
-        private IShape shape;
-        private IShape wantedShape;
+        private IMonster shape;
+        private IMonster wantedShape;
 
-        private void createShape_Click(object sender, EventArgs e)
+        private void createMonster_Click(object sender, EventArgs e)
         {
             switch (choose_shape.SelectedItem.ToString())
             {
-                case "Circle":
-                    wantedShape = new Circle(this.CreateGraphics(), coords);
+                case "Wolf":
+                    wantedShape = new Wolf(this.CreateGraphics(), coords);
                     break;
-                case "Square":
-                    wantedShape = new Square(this.CreateGraphics(), coords);
+                case "MagicFrog":
+                    wantedShape = new MagicFrog(this.CreateGraphics(), coords);
                     break;
             }
-            shape = new ShapeProxy(this.CreateGraphics(), coords, wantedShape);
+            shape = new MonsterProxy(this.CreateGraphics(), coords, wantedShape);
             Invalidate();
         }
 

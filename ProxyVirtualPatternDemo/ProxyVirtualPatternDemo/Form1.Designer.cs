@@ -59,6 +59,7 @@
             this.choose_shape.Name = "choose_shape";
             this.choose_shape.Size = new System.Drawing.Size(121, 21);
             this.choose_shape.TabIndex = 3;
+            this.choose_shape.Text = "Pick a shape";
             this.choose_shape.SelectedIndexChanged += new System.EventHandler(this.choose_shape_SelectedIndexChanged);
             // 
             // createShape
@@ -69,7 +70,7 @@
             this.createShape.TabIndex = 4;
             this.createShape.Text = "Create Shape";
             this.createShape.UseVisualStyleBackColor = true;
-            this.createShape.Click += new System.EventHandler(this.createShape_Click);
+            this.createShape.Click += new System.EventHandler(this.createMonster_Click);
             // 
             // Form1
             // 
