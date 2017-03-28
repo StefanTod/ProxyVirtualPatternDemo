@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace ProxyVirtualPatternDemo
 {
-    interface Visitor
+    interface IVisitor
     {
+        int attacks(Wolf wolf);
+        int attacks(MagicFrog magicFrog);
+        int calculateDmg(Races race, int damage, int armor, int magicResistance);
     }
 }

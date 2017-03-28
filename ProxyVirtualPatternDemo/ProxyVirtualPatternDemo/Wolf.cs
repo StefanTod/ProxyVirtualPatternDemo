@@ -8,7 +8,7 @@ using System.Xml.XPath;
 
 namespace ProxyVirtualPatternDemo
 {
-    class Wolf : IMonster
+    class Wolf : IMonster, IVisitable
     {
         public static int width = 50, height = 50;
         private Graphics gForm;
@@ -70,6 +70,11 @@ namespace ProxyVirtualPatternDemo
                 gForm.FillEllipse(Brushes.Gray, moveTo.X - (shWidth / 2), moveTo.Y - (shHeight / 2), shWidth, shHeight);
             }
             gForm.FillEllipse(Brushes.Green, position.X - (width / 2), position.Y - (height / 2), width, height);
+        }
+
+        public void acceptAttack(IVisitor visitor)
+        {
+            visitor.attacks(this);
         }
     }
 }

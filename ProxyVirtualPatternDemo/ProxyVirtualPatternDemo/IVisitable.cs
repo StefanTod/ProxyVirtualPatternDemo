@@ -8,5 +8,6 @@ namespace ProxyVirtualPatternDemo
 {
     interface IVisitable
     {
+        void acceptAttack(IVisitor visitor);
     }
 }

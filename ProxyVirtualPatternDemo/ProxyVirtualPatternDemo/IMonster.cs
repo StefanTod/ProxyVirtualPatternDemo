@@ -2,7 +2,12 @@
 
 namespace ProxyVirtualPatternDemo
 {
-    public interface IShape
+    enum Races
+    {
+        Earth ,Magic
+    }
+
+    public interface IMonster
     {
         void Move(Point p);
         void Draw();

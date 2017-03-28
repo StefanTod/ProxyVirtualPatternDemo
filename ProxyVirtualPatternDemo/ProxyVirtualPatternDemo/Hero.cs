@@ -12,34 +12,26 @@ namespace ProxyVirtualPatternDemo
 
         public int attacks(Wolf wolf)
         {
-            if (wolf.Race == Races.Magic)
-            {
-                return wolf.Health = (damage - (wolf.Armor / 2) + 10); //10 extra damage because race is magic and hero does more damage to magic
-            } else if (wolf.Race == Races.Earth)
-            {
-                return wolf.Health = (damage - (wolf.Armor / 2) - 5);
-                    //5 extra damage because race is earth and hero does less damage to earth
-            }
-            else
-            {
-                return wolf.Health;
-            }
+            Wolf wf = wolf;
+            return wf.Health -= calculateDmg(wf.Race, damage, wf.Armor, wf.MagicResistance);
         }
 
         public int attacks(MagicFrog magicFrog)
         {
-            if (magicFrog.Race == Races.Magic)
+            MagicFrog mf = magicFrog;
+            return mf.Health -= calculateDmg(mf.Race, damage, mf.Armor, mf.MagicResistance);
+        }
+
+        public int calculateDmg(Races race, int damage, int armor, int magicResist )
+        {
+            switch (race)
             {
-                return magicFrog.Health = (damage - (magicFrog.Armor / 2) + 10); //10 extra damage because race is magic and hero does more damage to magic
-            }
-            else if (magicFrog.Race == Races.Earth)
-            {
-                return magicFrog.Health = (damage - (magicFrog.Armor / 2) - 5);
-                //5 extra damage because race is earth and hero does less damage to earth
-            }
-            else
-            {
-                return magicFrog.Health;
+                case Races.Magic:
+                    return (damage - (armor / 2) + 10); //10 extra damage because race is magic and hero does more damage to magic
+                case Races.Earth:
+                    return (damage - (armor / 2) - 5); //5 less damage because race is earth and hero does less damage to earth
+                default:
+                    return 0;
             }
         }
     }
