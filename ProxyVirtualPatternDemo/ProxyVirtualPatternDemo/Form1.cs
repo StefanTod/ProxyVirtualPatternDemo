@@ -13,21 +13,21 @@ namespace ProxyVirtualPatternDemo
     public partial class Form1 : Form
     {
         private Point coords = new Point(50, 50);
-        private IMonster shape;
-        private IMonster wantedShape;
+        private IMonster monster;
+        private IMonster wantedMonster;
 
         private void createMonster_Click(object sender, EventArgs e)
         {
             switch (choose_shape.SelectedItem.ToString())
             {
                 case "Wolf":
-                    wantedShape = new Wolf(this.CreateGraphics(), coords);
+                    wantedMonster = new Wolf(this.CreateGraphics(), coords);
                     break;
                 case "MagicFrog":
-                    wantedShape = new MagicFrog(this.CreateGraphics(), coords);
+                    wantedMonster = new MagicFrog(this.CreateGraphics(), coords);
                     break;
             }
-            shape = new MonsterProxy(this.CreateGraphics(), coords, wantedShape);
+            monster = new MonsterProxy(this.CreateGraphics(), coords, wantedMonster);
             Invalidate();
         }
 
@@ -41,18 +41,18 @@ namespace ProxyVirtualPatternDemo
         {
             coords = this.PointToClient(Cursor.Position);
             UpdateText();
-            if (shape != null)
+            if (monster != null)
             {
-                shape.Move(coords);
+                monster.Move(coords);
             }
             Invalidate();
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            if (shape != null)
+            if (monster != null)
             {
-                shape.Draw();
+                monster.Draw();
             }
         }
 
@@ -63,10 +63,10 @@ namespace ProxyVirtualPatternDemo
 
         private void timer_refresh_Tick(object sender, EventArgs e)
         {
-            if (shape != null)
+            if (monster != null)
             {
                 Point point = new Point(-10, -10);
-                shape.Move(point);
+                monster.Move(point);
             }
             Invalidate();
         }

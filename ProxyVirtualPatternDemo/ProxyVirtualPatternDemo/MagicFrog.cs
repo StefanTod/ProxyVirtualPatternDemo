@@ -20,13 +20,35 @@ namespace ProxyVirtualPatternDemo
         {
             gForm = g;
             this.position = position;
-            health = 100;
-            armor = 10;
-            magicResistance = 20;
-            race = Races.Magic;
+            Health = 100;
+            Armor = 10;
+            MagicResistance = 20;
+            Race = Races.Magic;
         }
 
-        public int Health { get; set; }
+        public MagicFrog()
+        {
+            Health = 100;
+            MaxHealth = 100;
+            Armor = 10;
+            MagicResistance = 20;
+            Race = Races.Magic;
+        }
+
+        public int Health {
+            get { return health; }
+            set
+            {
+                if (value > 0)
+                {
+                    health = value;
+                }
+                else
+                {
+                    health = 0;
+                }
+            }
+        }
         public int MaxHealth { get; }
         public int Armor { get; }
         public int MagicResistance { get; }

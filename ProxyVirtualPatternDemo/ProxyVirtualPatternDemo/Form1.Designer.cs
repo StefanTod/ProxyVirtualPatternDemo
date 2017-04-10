@@ -32,7 +32,7 @@
             this.lb_coordinates = new System.Windows.Forms.Label();
             this.timer_refresh = new System.Windows.Forms.Timer(this.components);
             this.choose_shape = new System.Windows.Forms.ComboBox();
-            this.createShape = new System.Windows.Forms.Button();
+            this.createMonster = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lb_coordinates
@@ -53,31 +53,31 @@
             // 
             this.choose_shape.FormattingEnabled = true;
             this.choose_shape.Items.AddRange(new object[] {
-            "Circle",
-            "Square"});
+            "Wolf",
+            "MagicFrog"});
             this.choose_shape.Location = new System.Drawing.Point(690, 39);
             this.choose_shape.Name = "choose_shape";
             this.choose_shape.Size = new System.Drawing.Size(121, 21);
             this.choose_shape.TabIndex = 3;
-            this.choose_shape.Text = "Pick a shape";
+            this.choose_shape.Text = "Pick a monster";
             this.choose_shape.SelectedIndexChanged += new System.EventHandler(this.choose_shape_SelectedIndexChanged);
             // 
-            // createShape
+            // createMonster
             // 
-            this.createShape.Location = new System.Drawing.Point(690, 67);
-            this.createShape.Name = "createShape";
-            this.createShape.Size = new System.Drawing.Size(121, 23);
-            this.createShape.TabIndex = 4;
-            this.createShape.Text = "Create Shape";
-            this.createShape.UseVisualStyleBackColor = true;
-            this.createShape.Click += new System.EventHandler(this.createMonster_Click);
+            this.createMonster.Location = new System.Drawing.Point(690, 67);
+            this.createMonster.Name = "createMonster";
+            this.createMonster.Size = new System.Drawing.Size(121, 23);
+            this.createMonster.TabIndex = 4;
+            this.createMonster.Text = "Create Monster";
+            this.createMonster.UseVisualStyleBackColor = true;
+            this.createMonster.Click += new System.EventHandler(this.createMonster_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(864, 602);
-            this.Controls.Add(this.createShape);
+            this.Controls.Add(this.createMonster);
             this.Controls.Add(this.choose_shape);
             this.Controls.Add(this.lb_coordinates);
             this.Name = "Form1";
@@ -94,7 +94,7 @@
         private System.Windows.Forms.Label lb_coordinates;
         private System.Windows.Forms.Timer timer_refresh;
         private System.Windows.Forms.ComboBox choose_shape;
-        private System.Windows.Forms.Button createShape;
+        private System.Windows.Forms.Button createMonster;
     }
 }
 

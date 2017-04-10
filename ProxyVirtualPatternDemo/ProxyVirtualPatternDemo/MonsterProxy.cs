@@ -18,6 +18,7 @@ namespace ProxyVirtualPatternDemo
         private Point tempCoords;
         private Timer timer;
         private IMonster monster;
+        private bool basic;
 
         public MonsterProxy(Graphics g, Point coordinates,IMonster monster)
         {
@@ -25,6 +26,14 @@ namespace ProxyVirtualPatternDemo
             gForm = g;
             MoveToPoint = coordinates;
             tempCoords = coordinates;
+            basic = false;
+            StartTimer();
+        }
+
+        public MonsterProxy(IMonster monster)
+        {
+            this.monster = monster;
+            basic = true;
             StartTimer();
         }
 
@@ -41,7 +50,10 @@ namespace ProxyVirtualPatternDemo
         private void OnElapseShape(object sender, ElapsedEventArgs e)
         {
             timer.Enabled = false;
-            monster.Move(MoveToPoint);
+            if (basic != true)
+            {
+                monster.Move(MoveToPoint);
+            }
         }
 
         public void Move(Point p)

@@ -25,10 +25,34 @@ namespace ProxyVirtualPatternDemo
             maxHealth = 100;
             armor = 20;
             magicResistance = 10;
-            race = Races.Magic;
+            race = Races.Earth;
         }
 
-        public int Health { get; set; }
+        public Wolf()
+        {
+            health = 100;
+            Armor = 20;
+            MagicResistance = 10;
+            MaxHealth = 100;
+            Race = Races.Earth;
+        }
+
+        public int Health
+        {
+            get { return health; }
+            set
+            {
+                if (value > 0)
+                {
+                    health = value;
+                }
+                else
+                {
+                    health = 0;
+                }
+            }
+        }
+
         public int MaxHealth { get; }
         public int Armor { get; }
         public int MagicResistance { get; }
